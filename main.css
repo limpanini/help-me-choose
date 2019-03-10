@@ -5,6 +5,12 @@ body {
   align-items: center;
   margin-top: 150px;
   background-color: lightgray;
+  color: #111111;
+}
+
+.dark {
+  background-color: #111111;
+  color: white;
 }
 
 h1 {

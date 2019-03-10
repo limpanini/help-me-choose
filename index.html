@@ -7,7 +7,7 @@
   </head>
   <body>
     <img src="train.jpeg" alt="train" height="42" width="42">
-    <h1>choose..</h1>
+    <h1 class="header">choose..</h1>
 
     <div class="inputSection">
       <div class="inputs">
@@ -15,6 +15,31 @@
       </div>
       <button class="addOption">Add</button>
     </div>
+    <div class="resultSection"></div>
     <button>Go</button>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+      //när vi laddar sidan ska vi köra en funktion
+      //det hide funktionen gör är att den lägger till display none på klassen resultsection
+      $(function() {
+        $('.resultSection').hide()
+
+        //vi skapar en variablel som är en funktion
+        var add_option = function() {
+          $('.inputs').append('<input></input>')
+        }
+        var add_background = function() {
+          $('body').toggleClass('dark')
+        }
+        //nu ska vi hitta knappen så att när vi klickar på knappen så körs fnktkonen oven
+        //hitta add option och på klick kör addoption
+        $('.addOption').click(add_option)
+
+        $('.header').click(add_background)
+
+
+      })
+
+    </script>
   </body>
 </html>
