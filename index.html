@@ -7,7 +7,11 @@
   </head>
   <body>
     <img src="train.jpeg" alt="train" height="42" width="42">
-    <h1 class="header">choose..</h1>
+
+    <div class="headerSection">
+      <h1 class="headerFirst">choose between..</h1>
+      <h1 class="headerSecond">the winner is..</h1>
+    </div>
 
     <div class="inputSection">
       <div class="inputs">
@@ -16,13 +20,14 @@
       <button class="addOption">Add</button>
     </div>
     <div class="resultSection"></div>
-    <button>Go</button>
+    <button class="submit">Go</button>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script>
       //när vi laddar sidan ska vi köra en funktion
       //det hide funktionen gör är att den lägger till display none på klassen resultsection
       $(function() {
         $('.resultSection').hide()
+        $('.headerSecond').hide()
 
         //vi skapar en variablel som är en funktion
         var add_option = function() {
@@ -31,12 +36,39 @@
         var add_background = function() {
           $('body').toggleClass('dark')
         }
-        //nu ska vi hitta knappen så att när vi klickar på knappen så körs fnktkonen oven
+        //nu ska vi hitta knappen så att när vi klickar på knappen så körs fnktkonen ovan
         //hitta add option och på klick kör addoption
         $('.addOption').click(add_option)
 
-        $('.header').click(add_background)
+        $('.headerSection').click(add_background)
 
+        //ta alla inputs jag har skrivit och lägg dem i en lista
+        var options = []
+        var submit = function() {
+
+          //gömma input och visa resultat
+          $('.inputSection').hide()
+          $('.headerFirst').hide()
+          //visa resultSection
+          $('.resultSection').css('display', 'flex')
+          $('.headerSecond').css('display', 'block')
+
+
+          $('input').each(function() {
+            //om värdet inte är en tom sträng..
+            if ($(this).val() != "") {
+              //plocka ut värdet som elementet jag är på just nu har och lägg till det i arrayen options
+              options.push($(this).val())
+            }
+          })
+          console.log(options)
+
+          //plocka ut en vinnare, slumpmässigt
+          var winner = options[Math.floor(Math.random() * options.length)]
+          console.log("winner is "+winner)
+          $('.resultSection').text(winner)
+        }
+        $('.submit').click(submit)
 
       })
 

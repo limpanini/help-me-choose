@@ -6,11 +6,14 @@ body {
   margin-top: 150px;
   background-color: lightgray;
   color: #111111;
+  font-family: 'helvetica neue', helvetica, sans-serif;
+  transition:all 0.3s ease;
 }
 
 .dark {
   background-color: #111111;
   color: white;
+  transition:all 0.3s ease;
 }
 
 h1 {
@@ -36,4 +39,12 @@ input {
 
 .addOption {
   margin-top: 10px;
+}
+
+.resultSection{
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
 }
